@@ -181,7 +181,7 @@ export const BloomBlessingAmrita = card(303061)
   .on("roll")
   .fixDice(DiceType.Hydro, 2)
   .fixDice(DiceType.Dendro, 2)
-  .on("playCard")
+  .on("playCard", (c, e) => e.card.id !== c.self.id)
   .do((c) => {
     c.addVariable("playCount", 1);
     if (c.getVariable("playCount") === 2) {
